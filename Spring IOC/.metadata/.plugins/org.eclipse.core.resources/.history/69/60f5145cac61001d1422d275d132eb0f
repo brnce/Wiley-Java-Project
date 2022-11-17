@@ -1,0 +1,10 @@
+package com.bernice.client;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ComponentScan(basePackages = {"com.bernice.presentation", "com.bernice.persistence", "com.bernice.service", "com.bernice.client"})
+public class BookConfiguration {
+
+}

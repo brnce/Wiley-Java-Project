@@ -1,0 +1,5 @@
+package com.bernice.training;
+
+public class GreetClient {
+
+}

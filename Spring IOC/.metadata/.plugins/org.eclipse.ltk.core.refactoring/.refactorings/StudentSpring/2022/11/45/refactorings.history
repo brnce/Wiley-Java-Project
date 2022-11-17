@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.student.persistence.StudentDaoPersistence&apos; to &apos;StudentDaoImpl&apos;&#x0A;- Original project: &apos;StudentSpring&apos;&#x0A;- Original element: &apos;com.student.persistence.StudentDaoPersistence&apos;&#x0A;- Renamed element: &apos;com.student.persistence.StudentDaoImpl&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;StudentDaoPersistence&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src=/optional=/true=/=/maven.pomderived=/true=/&lt;com.student.persistence{StudentDaoPersistence.java[StudentDaoPersistence" matchStrategy="1" name="StudentDaoImpl" qualified="false" references="true" similarDeclarations="false" stamp="1668173984807" textual="false" version="1.0"/>
+</session>

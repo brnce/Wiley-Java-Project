@@ -1,0 +1,26 @@
+package com.student.client;
+
+
+import java.util.Scanner;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.student.presentation.StudentPresentation;
+
+public class StudentClient {
+
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		
+
+
+		
+		ApplicationContext springContainer=new ClassPathXmlApplicationContext("studentconfiguration.xml");
+		StudentPresentation employeePresentation=(StudentPresentation)springContainer.getBean("studentPresentation");
+		while(true) {
+			employeePresentation.showMenu();
+			System.out.println("Enter Choice : ");
+			int choice=scanner.nextInt();
+			employeePresentation.performMenu(choice);
+		}
+}
+}

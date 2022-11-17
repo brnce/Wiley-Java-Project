@@ -1,0 +1,39 @@
+package com.student.client;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+//
+//@Configuration
+//@ComponentScan(basePackages = "com.student")
+//public class StudentConfiguration {
+//}
+
+import com.student.persistence.StudentDaoImpl;
+import com.student.presentation.StudentPresentationImpl;
+import com.student.service.StudentServiceImpl;
+
+
+
+@Configuration
+@ComponentScan(basePackages  = "com.student")
+public class StudentConfiguration {
+
+	@Bean(name="dao")
+	public StudentDaoImpl getPersistence() {
+		//constructor injection?
+		return new StudentDaoImpl(); 
+	}
+	
+	@Bean(name="service")
+	public StudentServiceImpl getStudentService() {
+		return new StudentServiceImpl(getPersistence()); //
+	}
+	
+	@Bean(name="studentPresentation")
+	public StudentPresentationImpl getStudentPresentation() { 
+		StudentPresentationImpl presentation = new StudentPresentationImpl();
+		presentation.setStudentService(getStudentService()); 
+		return presentation;
+	}
+}
