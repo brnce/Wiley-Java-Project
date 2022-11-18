@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+/Users/berniceesiemot/eclipse-workspace/Lambda And Streams/.metadata/.plugins/org.eclipse.jdt.core
+439080158.index
+2101433268.index
+1865797976.index
+48647775.index
