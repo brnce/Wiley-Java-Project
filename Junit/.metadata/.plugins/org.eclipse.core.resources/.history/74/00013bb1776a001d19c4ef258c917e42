@@ -1,0 +1,54 @@
+package test;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import entity.Book;
+import persistence.BookDao;
+import service.BookServiceImpl;
+
+
+class TestBookService {
+	
+	private BookServiceImpl bookServiceImpl;
+	private BookDao bookdao;
+
+	@BeforeEach
+	void setUp() throws Exception {
+		
+		bookServiceImpl = new BookServiceImpl();
+		
+		bookdao = Mockito.mock(BookDao.class);
+		
+		bookServiceImpl.setBookDao(bookdao);
+
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+	}
+
+	@Test
+	void testAddNewBook() {
+		
+		when(bookdao.insertBook(new Book(107, "Book Seven", "Author Seven", 230))).thenReturn(1);
+		
+		assertTrue(bookServiceImpl.addNewBook(new Book(107, "Book Seven", "Author Seven", 230)));
+		
+	}
+
+	@Test
+	void testDeleteBook() {
+		
+		when(bookdao.deleteRecord(107)).thenReturn(1);
+		
+		assertTrue(bookServiceImpl.deleteBook(107));
+
+	}
+
+}

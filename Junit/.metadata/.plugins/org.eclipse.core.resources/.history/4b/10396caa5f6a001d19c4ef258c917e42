@@ -1,0 +1,9 @@
+package com.bernice.service;
+
+import java.util.List;
+
+import com.bernice.bean.Stock;
+
+public interface BuyProductService {
+	double getTotalPrice();
+}

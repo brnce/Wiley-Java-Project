@@ -1,0 +1,71 @@
+package test;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import entity.Book;
+import persistence.BookDao;
+import service.BookServiceImpl;
+
+@RunWith(MockitoJUnitRunner.class)
+class TestBookServiceWithAnnotation {
+	
+	
+	@InjectMocks
+	private BookServiceImpl bookServiceImpl;
+	
+	@Mock
+	private BookDao bookdao;
+	private AutoCloseable autoCloseable;
+	
+	@BeforeEach
+	void setUp() throws Exception {
+		
+		/*
+		 * tells mockito to scan the test class instance 
+		 * for all the fields annotated with @Mock
+		 * and initialise those fields as mocks
+		 * 
+		 */
+		autoCloseable=MockitoAnnotations.openMocks(this);
+	}
+
+
+	@AfterEach
+	void tearDown() throws Exception {
+		autoCloseable.close();
+	}
+
+	@DisplayName("Test - Add a new book")
+	@Test
+	void testAddNewBook() {
+		
+		//Specifying the behaviour of the mock
+		when(bookdao.insertBook(new Book(107, "Book Seven", "Author Seven", 230))).thenReturn(1);
+		
+		assertTrue(bookServiceImpl.addNewBook(new Book(107, "Book Seven", "Author Seven", 230)));
+		
+	}
+
+	@DisplayName("Test - Delete a book")
+	@Test
+	void testDeleteBook() {
+		
+		//Specifying the behaviour of the mock
+		when(bookdao.deleteRecord(107)).thenReturn(1);
+		
+		assertTrue(bookServiceImpl.deleteBook(107));
+
+	}
+
+}

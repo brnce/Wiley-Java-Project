@@ -1,0 +1,49 @@
+package com.test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.lang.runtime.ObjectMethods;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import entity.Book;
+import persistence.BookDaoImpl;
+
+class BookDaoTest {
+	
+	BookDaoImpl bookDaoImpl;
+
+	@BeforeEach
+	void setUp() throws Exception {
+		bookDaoImpl=new BookDaoImpl();
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+		bookDaoImpl=null;
+	}
+
+	@Test
+	void testGetAllBooks() {
+		assertTrue(bookDaoImpl.getAllBooks().size()>0);
+	}
+	
+	@Test
+	void testInsertRecord() {
+		assertEquals(1, bookDaoImpl.insertBook(new Book(108,"Harry Porter","Executive",34000)));
+	}
+	
+	@Test
+	void testSearchBook() {
+		
+	}
+	
+	@Test
+	void testDeleteBook() {
+		
+	}
+	
+
+}

@@ -1,0 +1,5 @@
+package com.bernice.exception;
+
+public class NegativeNumberException {
+
+}
