@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+/Users/berniceesiemot/eclipse-workspace/Enum/.metadata/.plugins/org.eclipse.jdt.core
+1865797976.index
+1386786189.index
+3981554979.index

@@ -1,0 +1,57 @@
+package com.bernice.demo;
+
+public enum Dish {
+	
+	
+	
+	
+	RICE (550, 23.0, true) {
+		@Override
+		public boolean caloriesCheck() {
+			if (getCalories() > 600) 
+				return true; 
+			
+			return false;
+			
+		}
+	}, PASTA (1500, 14.50, false)
+	
+	
+ {
+		@Override
+		public boolean caloriesCheck() {
+			if (getCalories() > 600) 
+				return true; 
+			
+			return false;
+			
+		}
+	};	
+	
+	
+	private int calories;
+	private double price;
+	private boolean isVegeterian;
+	
+	private Dish(int calories, double price, boolean isVegeterian) {
+		this.calories = calories;
+		this.price = price;
+		this.isVegeterian = isVegeterian;
+	}
+	
+	public int getCalories() {
+		return calories;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public boolean isVegeterian() {
+		return isVegeterian;
+	}
+
+	
+	public abstract boolean caloriesCheck();
+
+}

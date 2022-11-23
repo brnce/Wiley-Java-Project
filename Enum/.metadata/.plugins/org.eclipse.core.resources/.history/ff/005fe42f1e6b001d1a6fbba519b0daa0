@@ -1,0 +1,10 @@
+package com.bernice.demo;
+
+public class DishesMain {
+	public static void main(String[] args) {
+		Dish dish=Dish.RICE;
+		
+		dish.caloriesCheck();
+
+	}
+}

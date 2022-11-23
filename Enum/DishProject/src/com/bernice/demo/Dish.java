@@ -1,0 +1,76 @@
+package com.bernice.demo;
+
+public enum Dish {
+	
+	
+	
+	
+	RICE (550, 23.0, true) {
+		
+		@Override
+		public void showDishInfo() {
+			System.out.println("This Rice dish has " + getCalories() + " calories, is a " + isVegeterian() + " vegetarian dish and £" + getPrice() + " in price ");			
+		}
+		
+		@Override
+		public boolean caloriesCheck() {
+			if (getCalories() > 600) {
+				System.out.println("Rice has a high calorie " + getCalories());
+			return true;
+			} else {
+				System.out.println("Rice has a low calorie " + getCalories());
+			return false;
+			
+			}
+		}
+		
+	}, 
+	
+	PASTA (1500, 14.50, false) {
+		
+		@Override
+		public void showDishInfo() {
+			System.out.println("This Pasta dish has " + getCalories() + " calories, is a " + isVegeterian() + " vegetarian dish and £" + getPrice() + " in price ");
+			System.out.println("");
+		}
+		@Override
+		public boolean caloriesCheck() {
+			if (getCalories() > 600) {
+				System.out.println("Pasta has a high calorie of " + getCalories());
+			return true;
+			} else {
+				System.out.println("Pasta has a low calorie " + getCalories());
+			return false;
+			
+			}
+		}
+	};	
+	
+	
+	private int calories;
+	private double price;
+	private boolean isVegeterian;
+	
+	private Dish(int calories, double price, boolean isVegeterian) {
+		this.calories = calories;
+		this.price = price;
+		this.isVegeterian = isVegeterian;
+	}
+	
+	public int getCalories() {
+		return calories;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public boolean isVegeterian() {
+		return isVegeterian;
+	}
+
+	
+	public abstract boolean caloriesCheck();
+	public abstract void showDishInfo();
+
+}

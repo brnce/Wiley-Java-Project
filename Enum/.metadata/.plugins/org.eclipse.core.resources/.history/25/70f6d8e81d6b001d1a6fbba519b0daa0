@@ -1,0 +1,30 @@
+package com.bernice.demo;
+
+public enum Dish {
+
+	private int calories;
+	private double price;
+	private boolean isVegeterian;
+	
+	private Dish(int calories, double price, boolean isVegeterian) {
+		this.calories = calories;
+		this.price = price;
+		this.isVegeterian = isVegeterian;
+	}
+	
+	public int getCalories() {
+		return calories;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public boolean isVegeterian() {
+		return isVegeterian;
+	}
+
+	
+	
+
+}
