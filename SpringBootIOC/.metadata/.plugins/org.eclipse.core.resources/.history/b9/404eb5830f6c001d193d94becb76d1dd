@@ -1,0 +1,53 @@
+package com.bernice.demo;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.bernice.entity.Book;
+import com.bernice.persistence.BookDaoImpl;
+
+@SpringBootTest
+class BookSpringBootProjectApplicationTests {
+	
+	// bookDao test
+	@Autowired
+	BookDaoImpl bookDaoImpl;
+	
+
+	@DisplayName("Test - Get All Books")
+	@Test
+	void T001() {
+		assertTrue(bookDaoImpl.getAllBooks().size()>0);
+	}
+	
+	@DisplayName("Test - Search Book By ID")
+	@Test
+	void T002() {
+		assertTrue(bookDaoImpl.searchBook(103)!=null);
+	}
+
+	@DisplayName("Test - Insert a Book")
+	@Test
+	void T003() {
+		assertEquals(1, bookDaoImpl.insertBook(new Book(107,"Book-Seven","Author-Seven", 120)));
+	}
+
+	@DisplayName("Test -Update a book")
+	@Test
+	void T004() {
+		assertEquals(1, bookDaoImpl.updateCopies(105,-150));
+	}
+
+	@DisplayName("Test - Delete a Books")
+	@Test
+	void contextLoads() {
+		assertEquals(1, bookDaoImpl.deleteRecord(109));
+	}
+
+
+}
