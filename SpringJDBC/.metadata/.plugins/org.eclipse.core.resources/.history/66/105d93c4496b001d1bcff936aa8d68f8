@@ -1,0 +1,47 @@
+package com.bernice.client;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+
+@Configuration
+@ComponentScan(basePackages = "com.bernice")
+public class EmployeeConfiguration {
+	
+	@Bean
+	public DataSource mysqlDataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/wileydi001");
+        dataSource.setUsername("root");
+        dataSource.setPassword("bernice123");
+
+        return dataSource;
+    }
+	
+//	@Autowired
+//	Environment environment;
+//	
+//	private final String URL = "jdbc:mysql://127.0.0.1:3306/wileydi001";
+//	private final String USER = "root";
+//	private final String DRIVER = "com.mysql.cj.jdbc.Driver";
+//	private final String PASSWORD = "bernice123";
+//	
+//	@Bean
+//	DataSource dataSource mysqlDataSource() {
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		driverManagerDataSource.setUrl(environment.getProperty(URL));
+//		driverManagerDataSource.setUsername(environment.getProperty(USER));
+//		driverManagerDataSource.setPassword(environment.getProperty(PASSWORD));
+//		driverManagerDataSource.setDriverClassName(environment.getProperty(DRIVER));
+//		return driverManagerDataSource;
+//	}
+
+}
+

@@ -1,0 +1,46 @@
+package com.bernice.persistence;
+
+
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+import com.bernice.entity.Book;
+
+@Repository("dao")
+public class BookDaoImpl implements BookDao{
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	@Override
+	public Collection<Book> getAllBooks() {
+		return null;
+	}
+
+	@Override
+	public Book searchBook(int id) {
+		return null;
+	}
+
+	
+
+	@Override
+	public int insertBook(Book book) {
+		String query = "INSERT INTO BOOKS VALUES(?,?,?,?)";
+		int rows = jdbcTemplate.update(query, book.getBookId(), book.getBookName(), book.getAuthorName(),
+				book.getNoOfCopies());
+
+		return rows;
+	}
+	
+
+	@Override
+	public int deleteRecord(int id) {
+		String query = "DELETE FROM BOOKS WHERE BOOKID=?";
+		int rows = jdbcTemplate.update(query, id);
+
+		return rows;
+	}
+}

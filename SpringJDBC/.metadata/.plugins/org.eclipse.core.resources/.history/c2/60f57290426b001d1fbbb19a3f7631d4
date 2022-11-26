@@ -1,0 +1,5 @@
+package com.bernice.client;
+
+public class BookConfiguration {
+
+}

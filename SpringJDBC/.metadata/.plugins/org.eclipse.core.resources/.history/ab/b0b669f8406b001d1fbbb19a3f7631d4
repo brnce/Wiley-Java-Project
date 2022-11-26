@@ -1,0 +1,32 @@
+package com.bernice.client;
+
+import java.util.Scanner;
+
+import com.bernice.presentation.BookPresentation;
+import com.bernice.presentation.BookPresentationImpl;
+
+
+
+
+
+public class BookClient {
+
+	public static void main(String[] args) {
+		
+		Scanner src=new Scanner(System.in);
+		
+		ApplicationContext springContainer=new ClassPathXmlApplicationContext("employee.xml");
+		EmployeePresentation employeePresentation=(EmployeePresentation)springContainer.getBean("presentation");
+		BookPresentation bookPresentation=new BookPresentationImpl();
+		
+		
+		while(true) {
+			bookPresentation.showMenu();
+			System.out.println("Enter Choice : ");
+			int choice=src.nextInt();
+			bookPresentation.performMenu(choice);
+		}
+
+	}
+
+}

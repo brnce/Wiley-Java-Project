@@ -1,0 +1,22 @@
+package com.bernice.persistence;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import org.springframework.jdbc.core.RowMapper;
+import com.bernice.entity.Book;
+
+
+public class BookRowMapper implements RowMapper<Book> {
+
+	@Override
+	public Book mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+		int bid = resultSet.getInt("BOOKID");
+		String bookName = resultSet.getString("BOOKNAME");
+		String authName = resultSet.getString("AUTHOR_NAME");
+		int numOfCopies = resultSet.getInt("NUMOFCOPIES");
+		
+		Book book = new Book(bid, bookName, authName, numOfCopies);
+		return book;
+	}
+
+}

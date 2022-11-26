@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=MyLayeredEmployeeSpringJavaAnnotationJDBCProject/\/Users\/berniceesiemot\/.m2\/repository\/org\/springframework\/spring-jdbc\/5.3.23\/spring-jdbc-5.3.23.jar=/maven.pomderived=/true=/=/maven.groupId=/org.springframework=/=/maven.artifactId=/spring-jdbc=/=/maven.version=/5.3.23=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;org.springframework.jdbc.core(RowMapper.class[RowMapper" modifiers="1537" timestamp="1669211192000"/>
+    <typeInfo handle="=MyLayeredEmployeeSpringJavaAnnotationJDBCProject/\/Users\/berniceesiemot\/.m2\/repository\/com\/mysql\/mysql-connector-j\/8.0.31\/mysql-connector-j-8.0.31.jar=/maven.pomderived=/true=/=/maven.groupId=/com.mysql=/=/maven.artifactId=/mysql-connector-j=/=/maven.version=/8.0.31=/=/maven.scope=/compile=/=/maven.pomderived=/true=/&lt;com.mysql.cj.result(RowList.class[RowList" modifiers="1537" timestamp="1669043273000"/>
+</typeInfoHistroy>
