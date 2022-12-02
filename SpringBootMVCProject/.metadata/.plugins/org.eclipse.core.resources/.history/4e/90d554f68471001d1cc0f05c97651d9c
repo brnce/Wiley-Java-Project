@@ -1,0 +1,6 @@
+package com.bernice.model.service;
+
+public interface CustomerService {
+	
+
+}

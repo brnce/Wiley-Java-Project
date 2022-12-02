@@ -1,0 +1,5 @@
+package com.bernice.model.service;
+
+public class EmployeeService {
+
+}

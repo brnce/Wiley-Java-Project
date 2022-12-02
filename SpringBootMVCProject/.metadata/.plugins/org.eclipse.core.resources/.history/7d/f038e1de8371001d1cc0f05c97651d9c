@@ -1,0 +1,30 @@
+package com.bernice.entity;
+
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Entity
+@Table(name = "employee")
+
+public class Customer {
+	
+	@Id
+	private int accountID;
+	private String customerName;
+	private String address;
+	private String phoneNumber;
+	private String userPassword;
+	private double balance;
+	
+
+}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Palindrome Program</title>
+</head>
+<body>
+
+<form action="./check" method="get">
+	Enter a Palindrome Number : <input type="text" name="number"><br><br>
+	<input type="submit" value="CheckPalindrome">
+</form>
+</body>
+</html>

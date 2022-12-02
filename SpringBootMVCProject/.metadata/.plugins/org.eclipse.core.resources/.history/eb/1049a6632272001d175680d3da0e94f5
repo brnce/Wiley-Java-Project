@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Bank of Wiley</title>
+</head>
+<body>
+<h1>Banking Management System</h1>
+<hr>
+<h3 th:text="'Welcome '+${session.customer.accountId}+'!'"></h3>
+<hr>
+<a href="./searchByIdPage">Search By ID</a><br><br>
+<a href="">Update Balance</a><br><br>
+</body>
+</html>

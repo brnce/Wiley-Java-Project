@@ -1,0 +1,7 @@
+package com.bernice.model.persistence;
+
+public interface CustomerDao {
+	
+	
+
+}

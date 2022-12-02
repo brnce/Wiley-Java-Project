@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Bank Management System</h1>
+<form action="#" th:action="@{./searchById}" th:object="${customer}">
+	Enter Account ID : <input type="text" th:field="*{accountId}"><br><br>
+	<input type="submit" value="Search">
+</form>
+
+</body>
+</html>

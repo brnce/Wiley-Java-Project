@@ -1,0 +1,8 @@
+package com.bernice.model.service;
+
+import com.bernice.entity.Customer;
+
+public interface CustomerService {
+	
+	boolean loginCheck (Customer customer);
+}

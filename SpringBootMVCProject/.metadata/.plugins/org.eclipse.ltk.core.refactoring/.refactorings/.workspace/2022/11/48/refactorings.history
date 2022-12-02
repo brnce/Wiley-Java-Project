@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SeconfSpringBootMVCProject2&apos; to &apos;SecondSpringBootMVCProject&apos;" description="Rename resource &apos;SeconfSpringBootMVCProject2&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/SeconfSpringBootMVCProject2" name="SecondSpringBootMVCProject" stamp="1669725329173" updateReferences="true"/>
+</session>

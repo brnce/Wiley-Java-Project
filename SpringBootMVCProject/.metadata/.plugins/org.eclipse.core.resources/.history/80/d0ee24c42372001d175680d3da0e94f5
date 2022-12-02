@@ -1,0 +1,35 @@
+package com.bernice.model.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bernice.entity.Customer;
+import com.bernice.model.persistence.CustomerDao;
+
+@Service
+public class CustomerServiceImpl implements CustomerService{
+	
+	@Autowired
+	private CustomerDao customerDao;
+
+	@Override
+	public boolean loginCheck(Customer customer) {
+		try {
+			Customer cust = customerDao.findByAccountIdAndUserPassword(customer.getAccountId(), customer.getUserPassword());
+			if(cust!=null)
+				return true;
+			return false;
+		}
+		catch(Exception ex) {
+			return false;
+		}
+	
+	}
+
+	@Override
+	public Customer searchById(int accountId) {
+		
+		return customerDao.findById(accountId).orElse(null);
+	}
+
+}

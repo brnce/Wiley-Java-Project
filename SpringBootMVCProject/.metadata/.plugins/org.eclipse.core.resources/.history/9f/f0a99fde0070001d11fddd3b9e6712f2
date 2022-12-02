@@ -1,0 +1,15 @@
+package com.bernice.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.bernice.model.service.PalindromeService;
+
+@Controller
+public class PalindromeController {
+	
+	@Autowired 
+	private PalindromeService palindromService;
+	
+	
+}

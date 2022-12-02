@@ -1,0 +1,13 @@
+package com.bernice.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class EmployeeSpringBootMvcProjectApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(EmployeeSpringBootMvcProjectApplication.class, args);
+	}
+
+}

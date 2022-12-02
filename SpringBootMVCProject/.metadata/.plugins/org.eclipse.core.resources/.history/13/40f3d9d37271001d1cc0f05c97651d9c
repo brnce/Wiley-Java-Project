@@ -1,0 +1,9 @@
+package com.bernice.model.service;
+
+import com.bernice.entity.User;
+
+public interface LoginService {
+	
+	boolean LloginCheck(User user);
+
+}

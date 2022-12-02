@@ -1,0 +1,190 @@
+package com.bernice.controller;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.util.Collection;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.bernice.entity.Employee;
+import com.bernice.model.service.EmployeeService;
+
+@Controller
+public class EmployeeController {
+
+	@Autowired
+	private EmployeeService employeeService;
+	
+	@RequestMapping("/")
+	public ModelAndView menuPageController() {
+		return new ModelAndView("index");
+	}
+	
+	//===== Controller for Delete===================
+	@RequestMapping("/deleteEmpPage")
+	public ModelAndView deletePageController() {
+		return new ModelAndView("InputIdForDelete");
+	}
+	
+	@RequestMapping("/deleteEmployee")
+	public ModelAndView deleteEmployeeController(HttpServletRequest request) {
+		ModelAndView modelAndView=new ModelAndView();
+		int eId=Integer.parseInt(request.getParameter("empId"));
+		String message=null;
+		if(employeeService.deleteEmployee(eId))
+			message="Employee Deleted with ID " + eId;
+		else
+			message="Employee with ID " + eId + " does not exist";
+		
+		modelAndView.addObject("message", message);
+		modelAndView.setViewName("Output");
+		
+		return modelAndView;
+	}
+	
+	//==================================================
+	
+    //=============Controller for increment Salary==================
+	@RequestMapping("/incrementSalPage")
+	public ModelAndView salaryPageController() {
+		return new ModelAndView("InputIdForIncrement");
+	}
+	
+	@RequestMapping("/incrementSal")
+	public ModelAndView salaryEmployeeController(HttpServletRequest request) {
+		ModelAndView modelAndView=new ModelAndView();
+		int eid=Integer.parseInt(request.getParameter("empId"));
+		double increment = Double.parseDouble(request.getParameter("increment"));
+		
+		String message=null;
+		
+		if(employeeService.incrementSalary(eid, increment))
+			message = "Employee with ID " + eid + " salary incremented with amount £" + increment;
+		else
+			message = "Employee with ID " + eid + " does not exist";
+		
+		modelAndView.addObject("message", message);
+		modelAndView.setViewName("Output");
+		
+		return modelAndView;
+	}
+	
+	//===========================================================
+	
+	//=============Controller for Showing all Employees==========
+	
+	@RequestMapping("/showAll")
+	public ModelAndView getAllEmployeesController() {
+		ModelAndView modelAndView=new ModelAndView();
+		Collection<Employee> empList=employeeService.getAllEmployees();
+		
+		modelAndView.addObject("employees", empList);
+		modelAndView.setViewName("ShowAllEmployees");
+		return modelAndView;
+	}
+	
+	//===========================================================
+	
+	//=================Search for Employee by ID=================
+	
+	@RequestMapping("/searchEmployeePage")
+	public ModelAndView searchPageController() {
+		return new ModelAndView("InputIdForSearch");
+	}
+	
+	@RequestMapping("/searchEmployee")
+	public ModelAndView searchEmployeesController(HttpServletRequest request) {
+		ModelAndView modelAndView=new ModelAndView();
+		int id=Integer.parseInt(request.getParameter("empId"));
+		
+		Employee employee=employeeService.searchEmployeeById(id);
+
+		if(employee != null) {
+			modelAndView.addObject("employee", employee);
+		    modelAndView.setViewName("ShowEmployee");
+	    }
+		else {
+			modelAndView.addObject("message", "Employee with ID " + id + "does not exist");
+			modelAndView.setViewName("Output");
+		} 
+		return modelAndView;
+      }
+	
+	//===========================================================
+	
+    //==============Search Employee by Department================
+		
+		@RequestMapping("/searchEmployeeByDepartmentPage")
+		public ModelAndView searchEmployeeByDepartmentPageController() {
+			return new ModelAndView("InputDepartmentForSearch");
+		}
+		
+		@RequestMapping("/searchEmployeeByDepartment")
+		public ModelAndView searchEmployeeByDepartmentController(HttpServletRequest request) {
+			ModelAndView modelAndView=new ModelAndView();
+			
+			String deptt=request.getParameter("department");
+			
+			List <Employee> empList=employeeService.getEmployeesByDepartment(deptt);
+			
+			if(empList.size()>0) {
+				modelAndView.addObject("employee", empList);
+			    modelAndView.setViewName("ShowAllEmployees");
+			} else {
+				modelAndView.addObject("message", "No Employee works in Department " + deptt);
+				modelAndView.setViewName("Output"); 
+			}
+			
+			return modelAndView;
+		}
+	
+	//===========================================================
+	
+	//=======================Add new Employee====================
+	
+	@RequestMapping("/addEmployeePage")
+	public ModelAndView addPageController() {
+		return new ModelAndView("AddNewEmployee");
+	}
+	
+	@RequestMapping("/addNewEmployee")
+	public ModelAndView addEmployeeController(HttpServletRequest request) {
+		ModelAndView modelAndView=new ModelAndView();
+
+		Employee newEmployee=new Employee();
+		
+		int empId = Integer.parseInt(request.getParameter("empId"));
+		String name = request.getParameter("name");
+		String designation =request.getParameter("designation");
+		String department = request.getParameter("department");
+		double salary = Double.parseDouble(request.getParameter("salary"));
+		LocalDate doj = LocalDate.parse(request.getParameter("doj"));
+		
+		newEmployee.setEmpId(empId); 
+		newEmployee.setEmpName(name); 
+		newEmployee.setEmpDesignation(designation); 
+		newEmployee.setEmpDepartment(department); 
+		newEmployee.setEmpSalary(salary); 
+		newEmployee.setDateOfJoining(doj); 
+		
+		String message = null;
+	
+		if(employeeService.addEmployee(newEmployee)) 
+			message = "Employee with ID " + empId + "has been successfully added"; 
+		else 
+			message = "Employee with iD " + empId + " already exist, so cannot add it as a new employee!";
+			
+		
+		modelAndView.addObject("message", message);
+		modelAndView.setViewName("Output");
+		
+		return modelAndView;
+	}
+
+}
