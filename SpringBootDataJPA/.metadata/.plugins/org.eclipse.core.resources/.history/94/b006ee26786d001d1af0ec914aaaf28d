@@ -1,0 +1,36 @@
+package com.bernice.demo;
+
+import java.time.LocalDate;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.ApplicationContext;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+import com.bernice.entity.Customer;
+import com.bernice.persistence.CustomerDao;
+
+@SpringBootApplication
+@EntityScan(basePackages = "com.bernice.entity")
+@EnableJpaRepositories(basePackages = "com.bernice.persistence")
+public class FirstSpringBootDataJpaProjectApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext springContainer=SpringApplication.run(FirstSpringBootDataJpaProjectApplication.class, args);
+		CustomerDao dao=(CustomerDao)springContainer.getBean("customerDao");
+		 
+		 dao.save(new Customer(1,"AAA","Some Address A","aaa@xyz.com",45000));
+		 dao.save(new Customer(2,"BBB","Some Address B","bbb@xyz.com",5000));
+		 dao.save(new Customer(3,"CCC","Some Address C","ccc@xyz.com",2500));
+	}
+
+}
+
+//private int dvdID;
+//private String title;
+//private LocalDate releaseDate;
+//private String rating;
+//private String directorName;
+//private String studio;
+//private long ratingComments;

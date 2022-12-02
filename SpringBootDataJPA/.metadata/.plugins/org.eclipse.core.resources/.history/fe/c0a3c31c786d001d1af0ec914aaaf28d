@@ -1,0 +1,35 @@
+package com.bernice.demo;
+
+import java.util.Scanner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.ApplicationContext;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import com.bernice.presentation.DvdPresentation;
+
+
+@SpringBootApplication(scanBasePackages = "com.bernice")
+@EntityScan(basePackages = "com.bernice.entity")
+@EnableJpaRepositories(basePackages = "com.bernice.persistence")
+public class DvdLibrarySpringBootDataJpaProjectApplication {
+
+	public static void main(String[] args) {
+		
+		ApplicationContext springContainer = SpringApplication.run(DvdLibrarySpringBootDataJpaProjectApplication.class, args);
+		
+		Scanner scanner=new Scanner(System.in);
+		
+		DvdPresentation dvdPresentation =(DvdPresentation)springContainer.getBean("presentation");
+		
+		while(true) {
+			dvdPresentation.showMenu();
+			System.out.println("Enter Choice: ");
+			int choice=scanner.nextInt();
+			dvdPresentation.performMenu(choice);
+			
+		}
+	}
+
+}
+

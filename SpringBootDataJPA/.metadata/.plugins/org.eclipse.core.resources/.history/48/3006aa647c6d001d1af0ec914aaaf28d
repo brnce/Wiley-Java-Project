@@ -1,0 +1,81 @@
+package com.bernice.presentation;
+
+import java.util.Collection;
+import java.util.Scanner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+import com.bernice.entity.DVD;
+import com.bernice.service.DvdService;
+
+@Component("presentation")
+public class DvdPresentationImpl implements DvdPresentation {
+	
+	@Autowired
+	private DvdService dvdService;
+	
+	@Autowired
+	@Qualifier("service")
+	public void setDvdService(DvdService dvdService) {
+		this.dvdService = dvdService;
+	}
+	
+	@Override
+	public void showMenu() {
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("Main Menu");
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("DVD Library Management System");
+		System.out.println("1. List All DVD in Collection");
+		System.out.println("2. Search DVD By Title"); // title
+		System.out.println("3. View a DVD Collection by ID"); // ID
+		System.out.println("4. Add New DVD in Collection");
+		System.out.println("5. Edit a DVD Collection");
+		System.out.println("6. Delete a DVD Collection");
+		System.out.println("7. Exit");
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+	}
+
+	@Override
+	public void performMenu(int choice) {
+		Scanner scanner=new Scanner(System.in);
+		switch (choice) {
+		
+		case 1: 
+			Collection<DVD> dvds = dvdService.getAllDVDs();
+			for(DVD dvd : dvds) { 
+				System.out.println(dvd);
+			}
+			System.out.println(" ");
+			break;
+		case 2: 
+			System.out.println("This function is still to be added");
+			System.out.println(" ");
+			break;
+		case 3: 
+			System.out.println("This function is still to be added");
+			System.out.println(" ");
+			break;
+		case 4: 
+			System.out.println("This function is still to be added");
+			break;
+		case 5: 
+			System.out.println("This function is still to be added");
+			break;
+		case 6: 
+			System.out.println("This function is still to be added");
+			break;
+		case 7: 
+			System.out.println("Thanks for using Employee Management System");
+			System.exit(0);
+		default:
+			System.out.println("Invalid Choice!");
+			break;
+			
+		}
+	}
+	
+}
+	

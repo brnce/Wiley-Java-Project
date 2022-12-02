@@ -1,0 +1,51 @@
+package com.bernice.service;
+
+import java.util.Collection;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.bernice.entity.DVD;
+import com.bernice.persistence.DvdDao;
+
+@Service("service")
+public class DvdServiceImpl implements DvdService{
+	
+	@Autowired
+	private DvdDao dvdDao;
+
+	@Override
+	public Collection<DVD> getAllDVDs() {
+		return dvdDao.findAll();
+	}
+
+	@Override
+	public DVD viewDVDbyID(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DVD searchDVDbyTitle(String title) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addDVD(DVD dvd) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteDVD(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean editBook(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+
+}

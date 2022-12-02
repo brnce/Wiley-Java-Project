@@ -1,0 +1,18 @@
+package com.bernice.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class FirstSpringBootDataJpaProjectApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(FirstSpringBootDataJpaProjectApplication.class, args);
+		CustomerDao dao=(CustomerDao)springContainer.getBean("customerDao");
+		 
+		 dao.save(new Customer(1,"AAA","Some Address A","aaa@xyz.com",45000));
+		 dao.save(new Customer(2,"BBB","Some Address B","bbb@xyz.com",5000));
+		 dao.save(new Customer(3,"CCC","Some Address C","ccc@xyz.com",2500));
+	}
+
+}

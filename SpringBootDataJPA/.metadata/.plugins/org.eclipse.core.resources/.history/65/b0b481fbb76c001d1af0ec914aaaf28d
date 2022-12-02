@@ -1,0 +1,5 @@
+package com.bernice.service;
+
+public class EmployeeServiceImpl {
+
+}

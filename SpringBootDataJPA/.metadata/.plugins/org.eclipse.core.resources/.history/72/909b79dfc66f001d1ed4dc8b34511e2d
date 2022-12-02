@@ -1,0 +1,18 @@
+package com.bernice.persistence;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import com.bernice.entity.Employee;
+
+@Repository
+public interface EmployeeDao extends JpaRepository<Employee, Integer> {
+	
+	List<Employee> findByEmpDepartment(String department);
+	
+	List<Employee> findBySalaryGreaterThan(double empSalary);
+	
+	List<Employee> countByTotalNumberOfDepartments(String deptt);
+
+}

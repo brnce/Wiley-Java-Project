@@ -1,0 +1,33 @@
+package com.bernice.service;
+
+import java.util.Collection;
+
+import com.bernice.entity.DVD;
+
+public interface DvdService {
+	
+	Collection<DVD> getAllDVDs();
+	
+	DVD searchDVDbyID(int id);
+	
+	DVD searchDVDbyTitle(String title);
+	
+	boolean addDVD(DVD dvd);
+	
+	boolean 
+	
+
+}
+
+
+//Collection<Employee> getAllEmployees();
+//
+//Employee searchEmployeeById(int id);
+//
+//boolean addEmployee(Employee employee);
+//
+//boolean deleteEmployee(int id);
+//
+//boolean incrementSalary(int id,double increment);
+//
+//EmployeePaySlip generatePaySlip(int employeeId);

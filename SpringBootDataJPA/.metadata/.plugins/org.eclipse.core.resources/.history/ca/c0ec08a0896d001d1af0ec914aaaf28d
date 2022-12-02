@@ -1,0 +1,39 @@
+package com.bernice.service;
+
+import java.util.Collection;
+
+import com.bernice.entity.Book;
+
+public class BookServiceImpl implements BookService{
+
+	@Override
+	public Collection<Book> getAllBooks() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Book searchBookById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addNewBook(Book book) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteBook(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean updateCopies(int id, int increment) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}
